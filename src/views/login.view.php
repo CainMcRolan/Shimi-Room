@@ -38,7 +38,7 @@ require "partials/nav.php";
     </div>
     <p class="my-2 text-center lg:text-md 2xl:text-base">Don't have an account? Get a new one: <a
                 href="/register" class="text-blue-500">get a new account</a></p>
-    <img src="../../public/profile.jpg" alt="" class="animate-spin self-center rounded-full w-16 h-16">
+    <img src="images/profile.jpg" alt="" class="animate-spin self-center rounded-full w-16 h-16">
 </div>
 
 <?php

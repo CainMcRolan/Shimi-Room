@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if (empty($errors)) {
-        $config = require "config.php";
+        $config = require base_path("config.php");
         $db = new Database($config['database']);
 
         $users = $db->query("select * from users where username = :username", [':username' => $username])->fetch();
@@ -38,4 +38,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 }
 
-require 'src/views/login.view.php';
+require base_path('src/views/login.view.php');

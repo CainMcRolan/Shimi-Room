@@ -15,7 +15,7 @@ require "partials/nav.php";
         <div class="w-full grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-2 2xl:grid-cols-3">
             <?php foreach ($projects as $project) : ?>
                 <div class="bg-[#d9e8ff] w-full h-full border border-[#61a0ff] p-1">
-                    <img src="../../public/cat-load.gif" alt="">
+                    <img src="images/cat-load.gif" alt="">
                     <h1 class="font-bold cursor-pointer"><a href="<?= $project['redirectLink'] ?>"
                                                             class="text-[#003f9e]
                     underline"><?=

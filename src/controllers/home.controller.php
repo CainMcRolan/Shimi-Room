@@ -2,7 +2,7 @@
 
 session_start();
 
-require "src/data/projects.php";
+require base_path("src/data/projects.php");
 $trace = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
 if (!$_SESSION['user']) {
@@ -12,4 +12,4 @@ if (!$_SESSION['user']) {
     $user = $_SESSION['user'];
 }
 
-require 'src/views/home.view.php';
+require base_path('src/views/home.view.php');

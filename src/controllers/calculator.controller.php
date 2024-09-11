@@ -51,4 +51,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-require 'src/views/calculator.view.php';
+require base_path('src/views/calculator.view.php');

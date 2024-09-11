@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if (empty($errors)) {
-        $config = require "config.php";
+        $config = require base_path("config.php");
         $db = new Database($config['database']);
 
         $username = htmlspecialchars($username);
@@ -37,4 +37,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 }
 
-require 'src/views/register.view.php';
+require base_path('src/views/register.view.php');
