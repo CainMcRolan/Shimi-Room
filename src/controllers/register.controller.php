@@ -19,8 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $config = require base_path("config.php");
         $db = new Database($config['database']);
 
-        $username = htmlspecialchars($username);
-        $password = htmlspecialchars(password_hash($password, PASSWORD_DEFAULT));
+        $password = password_hash($password, PASSWORD_DEFAULT);
 
         $result = $db->query("select * from users where username = :username", [':username' => $username])
             ->fetchAll();

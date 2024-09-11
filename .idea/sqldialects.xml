@@ -2,6 +2,8 @@
 <project version="4">
   <component name="SqlDialectMappings">
     <file url="file://$PROJECT_DIR$/src/controllers/login.controller.php" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/src/controllers/quiz-identify.controller.php" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/src/controllers/quiz-multiple.controller.php" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/src/controllers/register.controller.php" dialect="GenericSQL" />
   </component>
 </project>

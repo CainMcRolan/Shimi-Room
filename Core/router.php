@@ -8,8 +8,8 @@ $routes = [
     "/register" => base_path("src/controllers/register.controller.php"),
     "/home" => base_path("src/controllers/home.controller.php"),
     "/calculator" => base_path("src/controllers/calculator.controller.php"),
-    "/quiz" => base_path("src/controllers/quiz1.controller.php"),
-    "/quiz2" => base_path("src/controllers/quiz2.controller.php"),
+    "/quiz-multiple" => base_path("src/controllers/quiz-multiple.controller.php"),
+    "/quiz-identify" => base_path("src/controllers/quiz-identify.controller.php"),
     "/stopwatch" => base_path("src/controllers/stopwatch.controller.php"),
 ];
 
