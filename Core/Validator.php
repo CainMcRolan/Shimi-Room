@@ -7,4 +7,14 @@ class Validator {
 
         return strlen($char) >= $min && strlen($char) <= $max;
     }
+
+    public static function verify_user($user)
+    {
+        if (empty($user)) {
+            header("Location: /login");
+            exit();
+        } else {
+            return $user;
+        }
+    }
 }

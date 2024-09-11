@@ -5,12 +5,7 @@ session_start();
 $sub_dir = '/home';
 $trace = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
-if (empty($_SESSION['user'])) {
-    header("Location: /login");
-    exit();
-} else {
-    $user = $_SESSION['user'];
-}
+Validator::verify_user($_SESSION['user']);
 
 $quiz = require base_path('/src/data/quiz-v2-data.php');
 
