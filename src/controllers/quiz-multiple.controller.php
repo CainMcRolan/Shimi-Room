@@ -26,13 +26,16 @@ $rankers = $db->query("
     SELECT username, time, score
     FROM results_multiple
     ORDER BY
+        -- Score in descending order (higher score first)
+        score DESC,
         -- Convert MM:SS:MS to total seconds including milliseconds
         (CAST(SUBSTRING_INDEX(time, ':', 1) AS UNSIGNED) * 60) +  -- Minutes to seconds
         CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(time, ':', -2), ':', 1) AS UNSIGNED) +  -- Seconds
-        CAST(SUBSTRING_INDEX(time, ':', -1) AS UNSIGNED) / 1000,  -- Milliseconds to seconds
-        score DESC  -- Highest score if times are the same
+        CAST(SUBSTRING_INDEX(time, ':', -1) AS UNSIGNED) / 1000  -- Milliseconds to seconds
+        ASC  -- Ascending order of time (lower is better)
     LIMIT 5
 ")->fetchAll();
+
 
 // Include the view
 require base_path('src/views/quiz-multiple.view.php');
