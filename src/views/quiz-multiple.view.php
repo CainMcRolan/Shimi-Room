@@ -38,7 +38,7 @@ require "partials/nav.php";
             </div>
         </div>
     </div>
-    <script src="scripts/quiz-multiple.js" type="module" defer></script>
+    <script type="module" src="scripts/quiz.js" defer></script>
 <?php
 require "partials/aside.php";
 require "partials/footer.php";

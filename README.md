@@ -12,5 +12,5 @@ Check out the live demo of the project [shimi room](https://shimijallores.me/log
 ## 🔥 Features
 ****
 - **Personal Design**: old style, my own taste.
-- **Nostalgic Looks**: reminds u of the old times, the old www.
+- **Nostalgic Looks**: reminds u of the old times, the old www.****
 - **Responsiveness**: works for all devices.

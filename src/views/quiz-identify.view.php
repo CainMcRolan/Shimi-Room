@@ -5,44 +5,40 @@ require "partials/background.php";
 require "partials/header.php";
 require "partials/nav.php";
 ?>
-    <div class="w-full h-full overflow-auto p-4 flex flex-col ">
-        <h1 class="text-lg font-bold mt-2 2xl:text-2xl">Technical Check-in v2</h1>
+    <div class="w-full h-full overflow-auto p-4 flex flex-col">
+        <div class="w-full flex justify-between">
+            <h1 class="text-lg font-bold mt-2 2xl:text-2xl">Technical Check-in v2</h1>
+            <p id="timer" class="text-lg font-bold mt-2 2xl:text-2xl hidden">00:00:00</p>
+        </div>
         <hr class="border border-[#61a0ff] w-full">
         <p class="lg:text-sm 2xl:text-sm"></p>
-        <?php if ($result_message) : ?>
-            <h1 class="text-[#003f9e] underline cursor-pointer font-bold text-center">score:<?= htmlspecialchars
-                ($result_message) ?></h1>
-            <form action="/quiz-identify" method="POST">
-                <input class="border border-blue-500 p-1 mt-2 hover:bg-blue-300 cursor-pointer" type="submit"
-                       name="reset" value="Reset">
-            </form>
-        <?php else: ?>
-            <form action="/quiz-identify" method="POST" class="flex justify-center w-full">
-                <fieldset class="border border-[#61a0ff] flex flex-col justify-center items-center lg:w-[30rem]">
-                    <legend class="lg:font-bold lg:text-md 2xl:text-base">Question <?= $_SESSION['question_count'] + 1
-                        ?></legend>
-                    <h1 class="text-[#003f9e] cursor-pointer font-bold text-center"><?= htmlspecialchars
-                        ($current_question)
-                        ?></h1>
-                    <div class="grid w-3/4">
-                        <input name="answer" id="answer" type="text" class="border border-[#61a0ff]
-                            mt-2 p-1 text-center
-                            lg:w-full" placeholder="Answer">
-                    </div>
-                    <p class="text-red-500 font-bold"><?= htmlspecialchars($error_message ?? '') ?></p>
-                    <div>
-                        <input class="border border-blue-500 p-1 mt-2 hover:bg-blue-300 cursor-pointer" type="submit"
-                               name="reset"
-                               value="Reset">
-                        <input class="border border-blue-500 p-1 mt-2 hover:bg-blue-300 cursor-pointer" type="submit"
-                               value=<?=
-                        $_SESSION['question_count'] === count($quiz) - 1 ? 'Finish' : 'Next' ?>>
-                    </div>
+        <div class="w-full h-full flex flex-col justify-between">
+            <button id="start_button" class="border border-blue-500 p-2 mt-2 w-16 hover:bg-blue-300
+                cursor-pointer self-center">Start
+            </button>
+            <div id="display_div" class="flex justify-center items-center flex-col"></div>
+            <div class="bg-[#d9e8ff] border border-[#61a0ff] flex flex-col items-center w-full my-2
+                lg:self-center">
+                <h1 class="font-bold text-md w-full text-center border border-[#61a0ff]">Leaderboards:</h1>
+                <div class="grid grid-cols-3 w-full">
+                    <p class="font-bold text-center">Username</p>
+                    <p class="font-bold text-center">Score</p>
+                    <p class="font-bold text-center">Time</p>
+                    <?php foreach ($rankers as $index => $ranker): ?>
+                        <p class="text-center">
+                            <?php echo htmlspecialchars($index + 1); ?>.
+                            <?php echo htmlspecialchars($ranker['username']); ?>
+                            <?php echo ($index + 1) === 1 ? '👑 ' : ''; ?>
+                        </p>
+                        <p class="text-center"><?php echo htmlspecialchars($ranker['score']); ?></p>
+                        <p class="text-center"><?php echo htmlspecialchars($ranker['time']); ?></p>
+                    <?php endforeach; ?>
 
-                </fieldset>
-            </form>
-        <?php endif; ?>
+                </div>
+            </div>
+        </div>
     </div>
+    <script type="module" src="scripts/quiz.js" defer></script>
 <?php
 require "partials/aside.php";
 require "partials/footer.php";
