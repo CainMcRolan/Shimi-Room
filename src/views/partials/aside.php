@@ -1,4 +1,4 @@
-<aside class="bg-[#d9e8ff] h-full w-full flex flex-col items-center">
+<aside class="bg-[#d9e8ff] h-full flex rounded-md overflow-auto flex-col items-center">
     <h1 class="font-bold text-center">Shimi's Room</h1>
     <img class="my-2" src="images/cat.gif" alt="">
     <img src="images/guest-book.gif" alt="">
@@ -12,9 +12,12 @@
     </ul>
     <hr class="border border-[#61a0ff] w-5/6 my-2">
     <form action="" class="full flex flex-col items-center">
-        <input type="text" name="search" class="border border-[#61a0ff] w-5/6" placeholder="search">
-        <input type="submit" value="Search" class="text-center border border-gray-500 bg-gray-200
-                       rounded-sm">
+        <label for="search_input"></label><input id="search_input" type="text" name="search"
+                                                 class="border border-[#61a0ff] w-5/6" placeholder="search">
+        <!--        Script for Search Function-->
+        <script src="scripts/helper/search.js" defer></script>
+        <input type="button" value="Search" class="text-center border border-gray-500 bg-gray-200
+                       rounded-sm cursor-pointer">
     </form>
     <hr class="border border-[#61a0ff] w-5/6 my-2">
     <ul class="list-disc pl-5 custom-list">

@@ -8,13 +8,7 @@ require "partials/nav.php";
     <div class="w-full h-full overflow-auto p-4 flex flex-col ">
         <h1 class="text-lg font-bold mt-2 2xl:text-2xl">Calculator</h1>
         <hr class="border border-[#61a0ff] w-full">
-        <p class="lg:text-sm 2xl:text-sm">This is one of the simple projects we were tasked to do😭,i think it's the
-            second
-            one to
-            be
-            specific?
-            well
-            not that it really matters. I had sum fun doing this so i hope you like it.😃
+        <p class="lg:text-sm 2xl:text-sm">just a basic and typical input output calculator, i hope u like it😃
         </p>
         <div class="self-center lg:w-2/3 2xl:w-3/5 my-2">
             <form action="/calculator" method="POST" class="flex flex-col">

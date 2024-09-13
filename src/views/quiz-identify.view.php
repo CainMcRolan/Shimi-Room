@@ -11,7 +11,7 @@ require "partials/nav.php";
             <p id="timer" class="text-lg font-bold mt-2 2xl:text-2xl hidden">00:00:00</p>
         </div>
         <hr class="border border-[#61a0ff] w-full">
-        <p class="lg:text-sm 2xl:text-sm"></p>
+        <p class="lg:text-sm 2xl:text-sm">another quiz, but this time, its about laravel and its identification😭</p>
         <div class="w-full h-full flex flex-col justify-between">
             <button id="start_button" class="border border-blue-500 p-2 mt-2 w-16 hover:bg-blue-300
                 cursor-pointer self-center">Start

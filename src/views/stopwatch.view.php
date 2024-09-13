@@ -8,6 +8,7 @@ require "partials/nav.php";
     <div class="w-full h-full overflow-auto p-4 flex flex-col ">
         <h1 class="text-lg font-bold mt-2 2xl:text-2xl">Stopwatch</h1>
         <hr class="border border-[#61a0ff] w-full">
+        <p class="lg:text-sm 2xl:text-sm">tick tock tick tock, hurry up its a 🚫⌚</p>
         <p id="timer" class="font-bold text-2xl text-center">00:00:00</p>
         <div class="self-center">
             <button id="reset" class="border border-blue-500 p-2 hover:bg-blue-400 ">Reset</button>
