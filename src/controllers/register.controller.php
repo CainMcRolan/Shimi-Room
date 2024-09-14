@@ -1,6 +1,10 @@
 <?php
 
-$trace = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+$header_info = [
+    "trace" => parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH),
+    "title" => "Register",
+    "description" => "Create an account here and then we'll talk!😤",
+];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = $_POST['username'];

@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!errMessage) {
                 const errorMessage = document.createElement('p');
                 errorMessage.id = 'search_err';
-                errorMessage.textContent = 'errrrrrrrrrr, i cant find it';
+                errorMessage.textContent = 'can\'t find what ur looking for';
                 errorMessage.classList.add('font-bold', 'text-red-500', 'text-2xl', 'text-center');
                 projectsContainer.appendChild(errorMessage);
             }

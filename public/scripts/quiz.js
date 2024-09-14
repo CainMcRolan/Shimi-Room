@@ -188,7 +188,7 @@ function GenerateAnswerFields() {
         input.name = 'answer';
         input.id = 'answer';
         input.type = 'txt';
-        input.classList.add('border', 'border-[#61a0ff]', 'mt-2', 'p-1', 'text-center', 'lg:w-full');
+        input.classList.add('border', 'border-[#61a0ff]', 'mt-2', 'p-1', 'text-center', 'lg:w-3/4');
         input.placeholder = 'Answer';
 
         return input;

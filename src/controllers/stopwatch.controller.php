@@ -2,8 +2,12 @@
 
 session_start();
 
-$sub_dir = '/home';
-$trace = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+$header_info = [
+    "trace" => parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH),
+    "title" => "Stopwatch",
+    "description" => "tick tock tick tock, hurry up its a 🚫⌚",
+    "sub_dir" => '/home',
+];
 
 Validator::verify_user($_SESSION['user']);
 

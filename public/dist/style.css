@@ -636,14 +636,6 @@ video {
   height: 100svh;
 }
 
-.h-\[100px\] {
-  height: 100px;
-}
-
-.min-h-full {
-  min-height: 100%;
-}
-
 .w-16 {
   width: 4rem;
 }
@@ -825,11 +817,6 @@ video {
   line-height: 1rem;
 }
 
-.text-xl {
-  font-size: 1.25rem;
-  line-height: 1.75rem;
-}
-
 .font-bold {
   font-weight: 700;
 }
@@ -915,6 +902,10 @@ video {
 
   .lg\:w-full {
     width: 100%;
+  }
+
+  .lg\:w-3\/4 {
+    width: 75%;
   }
 
   .lg\:grid-cols-2 {

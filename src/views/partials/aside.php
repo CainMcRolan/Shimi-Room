@@ -1,3 +1,4 @@
+</div>
 <aside class="bg-[#d9e8ff] h-full flex rounded-md overflow-auto flex-col items-center">
     <h1 class="font-bold text-center">Shimi's Room</h1>
     <img class="my-2" src="images/cat.gif" alt="">

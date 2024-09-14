@@ -4,19 +4,15 @@ require "partials/head.php";
 require "partials/background.php";
 require "partials/header.php";
 require "partials/nav.php";
+require "partials/main.php";
 ?>
-    <div class="w-full h-full overflow-auto p-4 flex flex-col ">
-        <h1 class="text-lg font-bold mt-2 2xl:text-2xl">Stopwatch</h1>
-        <hr class="border border-[#61a0ff] w-full">
-        <p class="lg:text-sm 2xl:text-sm">tick tock tick tock, hurry up its a 🚫⌚</p>
-        <p id="timer" class="font-bold text-2xl text-center">00:00:00</p>
-        <div class="self-center">
-            <button id="reset" class="border border-blue-500 p-2 hover:bg-blue-400 ">Reset</button>
-            <button id="start" class="border border-blue-500 p-2 hover:bg-blue-400 ">Start</button>
-        </div>
+    <p id="stopwatch_timer" class="font-bold text-2xl text-center">00:00:00</p>
+    <div class="self-center">
+        <button id="reset" class="border border-blue-500 p-2 hover:bg-blue-400 ">Reset</button>
+        <button id="start" class="border border-blue-500 p-2 hover:bg-blue-400 ">Start</button>
     </div>
     <script>
-        const textDisplay = document.querySelector('#timer');
+        const textDisplay = document.querySelector('#stopwatch_timer');
         const startBtn = document.querySelector('#start');
         const resetBtn = document.querySelector('#reset');
         let intervalID = null;
@@ -30,12 +26,14 @@ require "partials/nav.php";
 
         resetBtn.addEventListener('click', resetWatch)
 
-        function startWatch()  {
+        function startWatch() {
             if (isRunning) return;
 
             startingTime = Date.now() - elapsedTime;
             intervalID = setInterval(() => {
+
                 elapsedTime = Date.now() - startingTime;
+
                 textDisplay.textContent = displayText(elapsedTime);
             }, 10)
 

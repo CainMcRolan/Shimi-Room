@@ -5,8 +5,12 @@ session_start();
 $config = require base_path("config.php");
 $db = new Database($config['database']);
 
-$sub_dir = '/home';
-$trace = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+$header_info = [
+    "trace" => parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH),
+    "title" => "Technical Check-in v2",
+    "description" => "another quiz, but this time, its about laravel and its identification😭",
+    "sub_dir" => '/home',
+];
 
 Validator::verify_user($_SESSION['user']);
 
