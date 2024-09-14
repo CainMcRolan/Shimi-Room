@@ -892,20 +892,16 @@ video {
     width: 66.666667%;
   }
 
+  .lg\:w-3\/4 {
+    width: 75%;
+  }
+
   .lg\:w-\[18rem\] {
     width: 18rem;
   }
 
   .lg\:w-\[30rem\] {
     width: 30rem;
-  }
-
-  .lg\:w-full {
-    width: 100%;
-  }
-
-  .lg\:w-3\/4 {
-    width: 75%;
   }
 
   .lg\:grid-cols-2 {
