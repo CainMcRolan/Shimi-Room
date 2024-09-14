@@ -22,6 +22,7 @@ require "partials/main.php";
         </div>
     <?php endforeach; ?>
 </div>
+
 <?php
 require "partials/aside.php";
 require "partials/footer.php";

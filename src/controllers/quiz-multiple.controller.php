@@ -12,6 +12,13 @@ $header_info = [
     "sub_dir" => '/home',
 ];
 
+$project_info = [
+    "creation_date" => "22/0/24 20:19",
+    "last_modified" => "14/09/24 23:15",
+    "author" => "Shimi Jallores",
+    "tags" => ["quiz", "php", "project"],
+];
+
 Validator::verify_user($_SESSION['user']);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {

@@ -9,6 +9,13 @@ $header_info = [
     "sub_dir" => '/home',
 ];
 
+$project_info = [
+    "creation_date" => "19/08/24 18:53",
+    "last_modified" => "14/09/24 23:43",
+    "author" => "Shimi Jallores",
+    "tags" => ["calc", "arithmetic", "project"],
+];
+
 Validator::verify_user($_SESSION['user']);
 
 //Logic for Calculator

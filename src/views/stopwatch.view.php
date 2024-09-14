@@ -68,6 +68,7 @@ require "partials/main.php";
 
     </script>
 <?php
+require "partials/info.php";
 require "partials/aside.php";
 require "partials/footer.php";
 ?>

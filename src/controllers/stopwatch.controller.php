@@ -9,6 +9,13 @@ $header_info = [
     "sub_dir" => '/home',
 ];
 
+$project_info = [
+    "creation_date" => "05/09/24 20:19",
+    "last_modified" => "14/09/24 23:18",
+    "author" => "Shimi Jallores",
+    "tags" => ["stopwatch", "timer", "project"],
+];
+
 Validator::verify_user($_SESSION['user']);
 
 require base_path('src/views/stopwatch.view.php');
