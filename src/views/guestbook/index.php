@@ -29,7 +29,7 @@ require base_path("src/views/partials/main.php");
                         | <?= htmlspecialchars($date) ?? "0000-00-00" ?> | <?= htmlspecialchars($time) ?? '00:00:00' ?>
                         | reply
                     </p>
-                    <?php if ($user['id'] === $comment['user_id']) : ?>
+                    <?php if (is_array($user) && $user['id'] === $comment['user_id'] && $comment['user_id'] !== null) : ?>
                         <form action="/guest" method="POST">
                             <input type="hidden" name="delete_id" value="<?= $comment['id'] ?>">
                             <button type="submit" class="font-mono text-[11px] text-red-500 mt-1

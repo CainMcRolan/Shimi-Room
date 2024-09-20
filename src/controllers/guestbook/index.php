@@ -25,15 +25,15 @@ $project_info = [
 ];
 
 //Declare Comments Variables
-$username = $_SESSION['user'] ?? 'Guest';
-$user = $db->query("select * from users where username = :username", [":username" => $username])->find();
+$username = $_SESSION['user'] ?? '';
 $errors = [];
+$user = $db->query("select * from users where username = :username", [":username" => $username])->find();
 $comments = [];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comment'])) {
     //Handle Insertion of new Comment
     //Get Form Data
-    $name = $username ?? $_POST['username'];
+    $name = $_SESSION['user'] ?? $_POST['username'];
     $comment = $_POST['comment'];
 
     //Validate Form Data
@@ -48,8 +48,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comment'])) {
     //Insert into Database
     if (empty($errors)) {
         $user = $db->query("select * from users where username = :username", [":username" => $name])->find();
+        $user_id = $user['id'] ?? null;
 
-        $db->query("insert into notes (username, comment, user_id) values(:username, :comment, :user_id)", [":username" => $name, ":comment" => $comment, ":user_id" => $user['id']]);
+        $db->query("insert into notes (username, comment, user_id) values(:username, :comment, :user_id)", [":username" => $name, ":comment" => $comment, ":user_id" => $user_id]);
 
         header("location: /guest");
         exit();
@@ -60,6 +61,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comment'])) {
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_id'])) {
     $delete_id = $_POST['delete_id'];
     $comment = $db->query("select * from notes where id = :id", [":id"=>$delete_id])->find();
+
+    $user = $db->query("select * from users where username = :username", [":username" => $username])->find();
 
     if ($comment && $comment['user_id'] === $user['id']) {
         $db->query("DELETE FROM notes WHERE id = :delete_id", [":delete_id" => $delete_id]);
