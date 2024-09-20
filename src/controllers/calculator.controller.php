@@ -1,5 +1,7 @@
 <?php
 
+use Core\Validator;
+
 session_start();
 
 $header_info = [

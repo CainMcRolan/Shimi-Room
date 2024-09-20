@@ -12,3 +12,9 @@ function base_path($path)
 {
     return BASE_PATH . $path;
 }
+
+function authorize($condition, $status = Response::FORBIDDEN) {
+    if (!$condition) {
+        abort($status);
+    }
+}

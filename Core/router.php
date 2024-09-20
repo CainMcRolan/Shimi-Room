@@ -21,7 +21,7 @@ function routeToController($routes, $uri) {
     }
 }
 
-function abort($code = 404) {
+function abort($code = Response::NOT_FOUND) {
     http_response_code($code);
 
     require base_path("src/views/{$code}.php");

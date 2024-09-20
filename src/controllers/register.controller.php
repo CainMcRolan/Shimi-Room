@@ -1,5 +1,8 @@
 <?php
 
+use Core\Database;
+use Core\Validator;
+
 $header_info = [
     "trace" => parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH),
     "title" => "Register",
@@ -26,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $password = password_hash($password, PASSWORD_DEFAULT);
 
         $result = $db->query("select * from users where username = :username", [':username' => $username])
-            ->fetchAll();
+            ->get();
 
         if ($result) {
             $errors['body'] = 'user already exists';

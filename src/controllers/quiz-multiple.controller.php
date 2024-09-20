@@ -1,5 +1,8 @@
 <?php
 
+use Core\Database;
+use Core\Validator;
+
 session_start();
 
 $config = require base_path("config.php");
@@ -30,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         ':score' => $score,
         ':username' => $username,
         ':time' => $time_spent,
-    ])->fetch();
+    ]);
 }
 
 $rankers = $db->query("
@@ -45,7 +48,7 @@ $rankers = $db->query("
         CAST(SUBSTRING_INDEX(time, ':', -1) AS UNSIGNED) / 1000  -- Milliseconds to seconds
         ASC  -- Ascending order of time (lower is better)
     LIMIT 5
-")->fetchAll();
+")->get();
 
 
 // Include the view

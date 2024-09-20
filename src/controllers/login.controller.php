@@ -1,5 +1,8 @@
 <?php
 
+use Core\Database;
+use Core\Validator;
+
 session_start();
 
 $header_info = [
@@ -25,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $config = require base_path("config.php");
         $db = new Database($config['database']);
 
-        $users = $db->query("select * from users where username = :username", [':username' => $username])->fetch();
+        $users = $db->query("select * from users where username = :username", [':username' => $username])->find_or_fail();
 
         if ($users) {
             if (password_verify($password, $users['password'])) {
