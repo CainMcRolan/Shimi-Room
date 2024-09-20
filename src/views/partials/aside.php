@@ -1,8 +1,8 @@
 </div>
 <aside class="bg-[#d9e8ff] h-full flex rounded-md overflow-auto flex-col items-center">
     <h1 class="font-bold text-center">Shimi's Room</h1>
-    <img class="my-2" src="images/cat.gif" alt="">
-    <img src="images/guest-book.gif" alt="">
+    <a href="/home"><img class="my-2" src="images/cat.gif" alt=""></a>
+    <a href="/guest"><img src="images/guest-book.gif" alt=""></a>
     <img class="my-2" src="images/flower.gif" alt="">
     <ul class="list-disc pl-5 custom-list">
         <li class="text-[#003f9e] underline"><a href="https://github.com/CainMcRolan">Github</a></li>

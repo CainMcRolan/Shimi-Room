@@ -7,6 +7,7 @@ $routes = [
     "/login" => base_path("src/controllers/login.controller.php"),
     "/register" => base_path("src/controllers/register.controller.php"),
     "/home" => base_path("src/controllers/home.controller.php"),
+    "/guest" => base_path("src/controllers/guestbook/index.php"),
     "/calculator" => base_path("src/controllers/calculator.controller.php"),
     "/quiz-multiple" => base_path("src/controllers/quiz-multiple.controller.php"),
     "/quiz-identify" => base_path("src/controllers/quiz-identify.controller.php"),

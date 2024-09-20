@@ -4,38 +4,41 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const search = document.querySelector('#search_input');
     const projectsContainer = document.querySelector('#projects_container');
-    const projects = Array.from(projectsContainer.children);
 
-    search.addEventListener('input', () => {
-        const searchTerm = search.value.trim().toLowerCase();
+    if (projectsContainer) {
+        const projects = Array.from(projectsContainer.children);
 
-        let anyMatch = false;
-        projects.forEach(project => {
-            const contentElement = project.querySelector("h1");
-            if (!contentElement) return;
+        search.addEventListener('input', () => {
+            const searchTerm = search.value.trim().toLowerCase();
 
-            const contentText = contentElement.textContent.trim().toLowerCase();
-            const isMatch = contentText.includes(searchTerm);
+            let anyMatch = false;
+            projects.forEach(project => {
+                const contentElement = project.querySelector("h1");
+                if (!contentElement) return;
 
-            project.style.display = isMatch ? 'block' : 'none';
-            if (isMatch) anyMatch = true;
+                const contentText = contentElement.textContent.trim().toLowerCase();
+                const isMatch = contentText.includes(searchTerm);
+
+                project.style.display = isMatch ? 'block' : 'none';
+                if (isMatch) anyMatch = true;
+            });
+
+            generateErrorMessage(anyMatch);
         });
 
-        generateErrorMessage(anyMatch);
-    });
-
-    function generateErrorMessage(anyMatch) {
-        const errMessage = document.querySelector('#search_err');
-        if (!anyMatch) {
-            if (!errMessage) {
-                const errorMessage = document.createElement('p');
-                errorMessage.id = 'search_err';
-                errorMessage.textContent = 'can\'t find what ur looking for';
-                errorMessage.classList.add('font-bold', 'text-red-500', 'text-2xl', 'text-center');
-                projectsContainer.appendChild(errorMessage);
+        function generateErrorMessage(anyMatch) {
+            const errMessage = document.querySelector('#search_err');
+            if (!anyMatch) {
+                if (!errMessage) {
+                    const errorMessage = document.createElement('p');
+                    errorMessage.id = 'search_err';
+                    errorMessage.textContent = 'can\'t find what ur looking for';
+                    errorMessage.classList.add('font-bold', 'text-red-500', 'text-2xl', 'text-center');
+                    projectsContainer.appendChild(errorMessage);
+                }
+            } else if (errMessage) {
+                errMessage.remove();
             }
-        } else if (errMessage) {
-            errMessage.remove();
         }
     }
 });
