@@ -25,7 +25,7 @@ $project_info = [
 ];
 
 //Declare Comments Variables
-$username = $_SESSION['user'];
+$username = $_SESSION['user'] ?? 'Guest';
 $user = $db->query("select * from users where username = :username", [":username" => $username])->find();
 $errors = [];
 $comments = [];
