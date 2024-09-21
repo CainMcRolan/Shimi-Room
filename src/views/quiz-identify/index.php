@@ -1,10 +1,10 @@
 <?php
 
-require "partials/head.php";
-require "partials/background.php";
-require "partials/header.php";
-require "partials/nav.php";
-require "partials/main.php";
+require base_path("src/views/partials/head.php");
+require base_path("src/views/partials/background.php");
+require base_path("src/views/partials/header.php");
+require base_path("src/views/partials/nav.php");
+require base_path("src/views/partials/main.php");
 ?>
     <div class="w-full h-full flex flex-col">
         <div class="bg-[#d9e8ff] border border-[#61a0ff] flex flex-col items-center w-full my-2
@@ -23,7 +23,6 @@ require "partials/main.php";
                     <p class="text-center"><?php echo htmlspecialchars($ranker['score']); ?></p>
                     <p class="text-center"><?php echo htmlspecialchars($ranker['time']); ?></p>
                 <?php endforeach; ?>
-
             </div>
         </div>
         <div id="display_div" class="flex justify-center items-center flex-col"></div>
@@ -33,7 +32,7 @@ require "partials/main.php";
     </div>
     <script type="module" src="scripts/quiz.js" defer></script>
 <?php
-require "partials/info.php";
-require "partials/aside.php";
-require "partials/footer.php";
+require base_path("src/views/partials/info.php");
+require base_path("src/views/partials/aside.php");
+require base_path("src/views/partials/footer.php");
 ?>

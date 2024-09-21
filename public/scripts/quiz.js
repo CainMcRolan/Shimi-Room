@@ -264,8 +264,9 @@ function sendResultsToBackEnd() {
     });
 
     const currentPath = window.location.pathname;
+    console.log(currentPath);
 
-    return fetch(`${currentPath}`, {
+    return fetch(`${currentPath}/create`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded'
