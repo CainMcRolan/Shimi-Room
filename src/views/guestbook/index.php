@@ -27,7 +27,7 @@ require base_path("src/views/partials/main.php");
                     <p class="text-[#003f9e] text-xs font-mono"><?= htmlspecialchars($comment['id']) ?? 0 ?>
                         | <?= htmlspecialchars(ucfirst($comment['username'])) ?? "Guest" ?>
                         | <?= htmlspecialchars($date) ?? "0000-00-00" ?> | <?= htmlspecialchars($time) ?? '00:00:00' ?>
-                        | reply
+                        | <button onclick="alert(`this feature will release soon`)">reply</button>
                     </p>
                     <?php if (is_array($user) && $user['id'] === $comment['user_id'] && $comment['user_id'] !== null) : ?>
                         <form action="/guest/destroy" method="POST">

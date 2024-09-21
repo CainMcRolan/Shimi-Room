@@ -1,12 +1,12 @@
 <?php
 
+use Core\App;
 use Core\Database;
 use Core\Validator;
 
 session_start();
 
-$config = require base_path("config.php");
-$db = new Database($config['database']);
+$db = App::resolve(Database::class);
 
 $header_info = [
     "trace" => parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH),

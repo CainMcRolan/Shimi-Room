@@ -1,7 +1,10 @@
 <?php
 
+use Core\App;
 use Core\Database;
 use Core\Validator;
+
+$db = App::resolve(Database::class);
 
 session_start();
 
@@ -25,8 +28,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if (empty($errors)) {
-        $config = require base_path("config.php");
-        $db = new Database($config['database']);
 
         $users = $db->query("select * from users where username = :username", [':username' => $username])->find_or_fail();
 

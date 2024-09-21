@@ -11,13 +11,19 @@
 //    "/stopwatch" => base_path("src/controllers/stopwatch.controller.php"),
 //];
 
-//To be Edited
+//Non-Dynamic Pages
 $router->get('/', 'src/controllers/login.controller.php');
-$router->get('/login', 'src/controllers/login.controller.php');
-$router->get('/register', 'src/controllers/register.controller.php');
 $router->get('/home', 'src/controllers/home.controller.php');
 $router->get('/calculator', 'src/controllers/calculator.controller.php');
 $router->get('/stopwatch', 'src/controllers/stopwatch.controller.php');
+
+//Login
+$router->get('/login', 'src/controllers/login.controller.php');
+$router->post('/login', 'src/controllers/login.controller.php');
+
+//Register
+$router->get('/register', 'src/controllers/register.controller.php');
+$router->post('/register', 'src/controllers/register.controller.php');
 
 //Guest
 $router->get('/guest', 'src/controllers/guestbook/index.php');

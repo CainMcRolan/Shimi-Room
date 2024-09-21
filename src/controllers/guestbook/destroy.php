@@ -4,11 +4,11 @@
 session_start();
 
 //Include Classes
+use Core\App;
 use Core\Database;
 
 //Connect to Database
-$config = require base_path("config.php");
-$db = new Database($config['database']);
+$db = App::resolve(Database::class);
 
 //Handle Comment Deletion
 $delete_id = $_POST['delete_id'];

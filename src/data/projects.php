@@ -2,7 +2,7 @@
 
 $projects = [
     [   'title' => 'Arithmetic Calculator',
-        'description' => 'A basic arithmetic calculator built with vanilla php and tailwindCSS.',
+        'description' => 'A basic arithmetic calculator. Allows computation of four (4) different operations',
         'techStack' => ['PHP', 'Tailwind CSS'],
         'redirectLink' => '/calculator',
         'image' => 'calculator.png',

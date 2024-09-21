@@ -1,7 +1,10 @@
 <?php
 
+use Core\App;
 use Core\Database;
 use Core\Validator;
+
+$db = App::resolve(Database::class);
 
 $header_info = [
     "trace" => parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH),
@@ -23,9 +26,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if (empty($errors)) {
-        $config = require base_path("config.php");
-        $db = new Database($config['database']);
-
         $password = password_hash($password, PASSWORD_DEFAULT);
 
         $result = $db->query("select * from users where username = :username", [':username' => $username])

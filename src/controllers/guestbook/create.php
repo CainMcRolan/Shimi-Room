@@ -4,12 +4,12 @@
 session_start();
 
 //Include Classes
+use Core\App;
 use Core\Database;
 use Core\Validator;
 
 //Connect to Database
-$config = require base_path("config.php");
-$db = new Database($config['database']);
+$db = App::resolve(Database::class);
 
 //Declare Errors Variables
 $errors = [];

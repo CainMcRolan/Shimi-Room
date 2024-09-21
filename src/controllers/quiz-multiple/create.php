@@ -1,12 +1,12 @@
 <?php
 
+use Core\App;
 use Core\Database;
 use Core\Validator;
 
 session_start();
 
-$config = require base_path("config.php");
-$db = new Database($config['database']);
+$db = App::resolve(Database::class);
 
 Validator::verify_user($_SESSION['user']);
 
