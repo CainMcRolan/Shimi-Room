@@ -5,7 +5,6 @@ session_start();
 
 //Include Classes
 use Core\Database;
-use Core\Validator;
 
 //Connect to Database
 $config = require base_path("config.php");
@@ -26,51 +25,9 @@ $project_info = [
 
 //Declare Comments Variables
 $username = $_SESSION['user'] ?? '';
-$errors = [];
 $user = $db->query("select * from users where username = :username", [":username" => $username])->find();
 $comments = [];
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comment'])) {
-    //Handle Insertion of new Comment
-    //Get Form Data
-    $name = $_SESSION['user'] ?? $_POST['username'];
-    $comment = $_POST['comment'];
-
-    //Validate Form Data
-    if (!Validator::string($name)) {
-        $errors['body'] = "Name has to be at least 5 characters";
-    }
-
-    if (!Validator::string($comment, 5, 200)) {
-        $errors['body'] = "Comments cannot be less than 5 characters and more than 200 characters";
-    }
-
-    //Insert into Database
-    if (empty($errors)) {
-        $user = $db->query("select * from users where username = :username", [":username" => $name])->find();
-        $user_id = $user['id'] ?? null;
-
-        $db->query("insert into notes (username, comment, user_id) values(:username, :comment, :user_id)", [":username" => $name, ":comment" => $comment, ":user_id" => $user_id]);
-
-        header("location: /guest");
-        exit();
-    }
-}
-
-//Handle Comment Deletion
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_id'])) {
-    $delete_id = $_POST['delete_id'];
-    $comment = $db->query("select * from notes where id = :id", [":id"=>$delete_id])->find();
-
-    $user = $db->query("select * from users where username = :username", [":username" => $username])->find();
-
-    if ($comment && $comment['user_id'] === $user['id']) {
-        $db->query("DELETE FROM notes WHERE id = :delete_id", [":delete_id" => $delete_id]);
-    }
-
-    header("location: /guest");
-    exit();
-}
+$errors = $_SESSION['errors'] ?? [];
 
 //Handle comments display
 $comments = $db->query("select * from notes")->get();
