@@ -53,13 +53,17 @@ require base_path("src/views/partials/main.php");
                     <input id="username" type="text" name="username" class="border border-[#61a0ff] my-1 lg:p-1 2x:p-1">
                 </label>
             <?php endif; ?>
+            <input type="hidden" name="_method" value="PATCH">
+            <input type="hidden" name="id" value="<?= $_GET['id'] ?>">
             <label class="w-full flex justify-center">
                     <textarea class="border border-[#61a0ff] w-full h-20 p-1 lg:w-1/2" name="comment"
-                              placeholder="Comment..."></textarea>
+                              placeholder="Comment..." ><?= $comment_assoc["comment"] ?></textarea>
             </label>
-            <input type="submit" name="submit" value="Comment" class="text-center mt-1 border border-gray-500 bg-gray-200
+            <input type="submit" name="submit" value="Update" class="text-center mt-1 border border-gray-500 bg-gray-200
                        rounded-sm cursor-pointer">
-            <p class="text-red-500"><?= $errors['body'] ?? '' ?></p>.
+            <a href="/guest" class="text-center mt-1 border border-gray-500 bg-gray-200
+                       rounded-sm cursor-pointer">Cancel</a>
+            <p class="text-red-500"><?= $errors['body'] ?? '' ?></p>
         </form>
     </div>
 <?php

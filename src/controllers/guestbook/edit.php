@@ -23,13 +23,19 @@ $project_info = [
     "tags" => ["guest", "notes", "comment", "message"],
 ];
 
-//Declare Comments Variables
+//Get Current Comment
+if (empty($_GET['id'])) {
+    header('location: /guest');
+    exit();
+}
+$comment_assoc = $db->query("select * from notes where id = :id", [':id' => $_GET['id']])->find_or_fail();
+
 $username = $_SESSION['user'] ?? '';
-$user = $db->query("select * from users where username = :username", [":username" => $username])->find();
+$user = $db->query("select * from users where username = :username", [":username" => $username])->find_or_fail();
 $comments = [];
 $errors = $_SESSION['errors'] ?? [];
 
 //Handle comments display
 $comments = $db->query("select * from notes order by id asc")->get();
 
-require base_path('src/views/guestbook/index.php');
+require base_path('src/views/guestbook/edit.php');

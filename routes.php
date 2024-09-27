@@ -29,6 +29,11 @@ $router->post('/register', 'src/controllers/register.controller.php');
 $router->get('/guest', 'src/controllers/guestbook/index.php');
 $router->post('/guest/create', 'src/controllers/guestbook/create.php');
 $router->delete('/guest/destroy', 'src/controllers/guestbook/destroy.php');
+//Edit Comments
+//weird behaviour in which I have to flatten the url or else the styling won't apply, it's because of the styling relative pathing
+//Future shimi, either you gotta find a fix for this shit or you'll just fuck urself up, or just find another file structure except for laracast
+$router->get('/edit', 'src/controllers/guestbook/edit.php');
+$router->patch('/guest/update', 'src/controllers/guestbook/update.php');
 
 //Quiz-Identify
 $router->get('/quiz-identify', 'src/controllers/quiz-identify/index.php');
