@@ -44,7 +44,7 @@ require base_path("src/views/partials/main.php");
         </div>
     </div>
     <div class="w-full flex flex-col items-center mt-2">
-        <form action="/guest/update" method="POST" class="w-10/12 flex items-center flex-col">
+        <form action="/guest/create" method="POST" class="w-10/12 flex items-center flex-col">
             <?php if ($username) : ?>
                 <input type="hidden" name="username" value="<?= $username ?>">
             <?php else : ?>

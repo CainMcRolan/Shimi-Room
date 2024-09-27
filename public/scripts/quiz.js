@@ -111,7 +111,6 @@ function Quiz() {
             });
         } else {
             let answer = document.querySelector('#answer').value;
-            console.log(answer);
             answer = answer.trim().toLowerCase();
 
             if (answer.length < 3) {
@@ -264,7 +263,6 @@ function sendResultsToBackEnd() {
     });
 
     const currentPath = window.location.pathname;
-    console.log(currentPath);
 
     return fetch(`${currentPath}/create`, {
         method: 'POST',
@@ -280,10 +278,10 @@ function sendResultsToBackEnd() {
             return response.text();
         })
         .then(data => {
-            console.log('Results successfully sent to backend:', data);
+            console.log('Score Recorded!');
         })
         .catch(error => {
-            console.error('Error sending results:', error);
+            console.error('Unable to record your score1 :<');
             throw error;
         });
 }
