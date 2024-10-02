@@ -1,6 +1,7 @@
 <?php
 
 use Core\Authenticator;
+use Core\Session;
 use Http\Forms\LoginForm;
 
 $username = $_POST['username'];
@@ -16,9 +17,8 @@ if ($form->validate($username, $password)) {
     $form->error('body', 'Invalid Credentials.');
 }
 
-$_SESSION['errors'] = $form->get_errors();;
+Session::flash('errors', $form->get_errors());
+Session::flash('username', $username);
+
 redirect('/login');
-
-
-
 

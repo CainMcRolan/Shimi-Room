@@ -14,7 +14,7 @@ require "partials/main.php";
             <label for="username" class="font-bold">
                 Username:
                 <input id="username" type="text" name="username" class="border border-[#61a0ff] my-1 lg:p-1
-                2x:p-1" value="<?= $_POST['username'] ?? '' ?>">
+                2x:p-1" value="<?= $username ?? '' ?>">
             </label>
             <label for="password" class="font-bold">
                 Password:

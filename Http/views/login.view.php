@@ -12,7 +12,7 @@ require "partials/main.php";
                 <legend class="lg:font-bold lg:text-md 2xl:text-base">Login</legend>
                 <label for="username" class="font-bold">
                     Username:
-                    <input id="username" value="<?= $_POST['username'] ?? '' ?>" type="text" name="username"
+                    <input id="username" value="<?= $username ?? '' ?>" type="text" name="username"
                            class="border
                     border-[#61a0ff] my-1
                     lg:p-1
@@ -29,6 +29,7 @@ require "partials/main.php";
             </fieldset>
         </form>
     </div>
+    <p class="text-green-500 text-center"><?= $success ?? '' ?></p>
     <p class="my-2 text-center lg:text-sm">Don't have an account? Get a new one: <a
                 href="/register" class="text-blue-500">get a new account</a></p>
     <img src="images/profile.jpg" alt="" class="animate-spin self-center rounded-full w-16 h-16">

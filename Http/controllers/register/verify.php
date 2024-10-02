@@ -2,6 +2,7 @@
 
 use Core\App;
 use Core\Authenticator;
+use Core\Session;
 use Http\Forms\RegisterForm;
 use Core\Database;
 
@@ -14,11 +15,12 @@ $db = App::resolve(Database::class);
 
 if ($form->validate($username, $password)) {
     if ((new Authenticator())->register_attempt($username, $password)) {
-        $_SESSION['errors'] = [];
+        Session::flash('success', 'Account registered successfully.');
         redirect('/login');
     }
     $form->error('body', 'user already exists');
 }
 
-$_SESSION['errors'] = $form->get_errors();
+Session::flash('username', $username);
+Session::flash('errors', $form->get_errors());
 redirect('/register');
