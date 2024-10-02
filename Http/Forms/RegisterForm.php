@@ -4,18 +4,18 @@ namespace Http\Forms;
 
 use Core\Validator;
 
-class LoginForm
+class RegisterForm
 {
     protected $errors = [];
 
     public function validate($username, $password)
     {
-        if (!Validator::string($password)) {
-            $this->errors['body'] = "enter a valid password";
+        if (!Validator::string($password, 5, INF)) {
+            $this->errors['body'] = 'password cannot be shorter than 5 characters';
         }
 
         if (!Validator::string($username)) {
-            $this->errors['body'] = "please enter a valid username.";
+            $this->errors['body'] = 'username cannot be shorter than 5 characters';
         }
 
         return empty($this->errors);
