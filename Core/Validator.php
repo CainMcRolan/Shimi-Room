@@ -13,14 +13,4 @@ class Validator {
     {
         return filter_var($char,FILTER_VALIDATE_EMAIL);
     }
-
-    public static function verify_user($user)
-    {
-        if (empty($user)) {
-            header("Location: /login");
-            exit();
-        } else {
-            return $user;
-        }
-    }
 }

@@ -1,9 +1,6 @@
 <?php
 
 use Core\Validator;
-
-session_start();
-
 $header_info = [
     "trace" => parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH),
     "title" => "Calculator",
@@ -17,8 +14,6 @@ $project_info = [
     "author" => "Shimi Jallores",
     "tags" => ["calc", "arithmetic", "project"],
 ];
-
-Validator::verify_user($_SESSION['user']);
 
 //Logic for Calculator
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {

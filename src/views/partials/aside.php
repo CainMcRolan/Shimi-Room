@@ -22,6 +22,11 @@
     </form>
     <hr class="border border-[#61a0ff] w-5/6 my-2">
     <ul class="list-disc pl-5 custom-list">
-        <li class="text-[#003f9e] underline"><a href="/login">Login</a></li>
+        <?php if ($_SESSION['user'] ?? false) : ?>
+            <form action="/logout" method="POST">
+                <input type="hidden" name="_method" value="DELETE">
+                <li><input type="submit" class="text-[#003f9e] underline cursor-pointer" value="Logout"></li>
+            </form>
+        <?php endif; ?>
     </ul>
 </aside>

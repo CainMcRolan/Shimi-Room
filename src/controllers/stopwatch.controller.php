@@ -2,8 +2,6 @@
 
 use Core\Validator;
 
-session_start();
-
 $header_info = [
     "trace" => parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH),
     "title" => "Stopwatch",
@@ -17,7 +15,5 @@ $project_info = [
     "author" => "Shimi Jallores",
     "tags" => ["stopwatch", "timer", "project"],
 ];
-
-Validator::verify_user($_SESSION['user']);
 
 require base_path('src/views/stopwatch.view.php');

@@ -7,7 +7,7 @@ require "partials/nav.php";
 require "partials/main.php";
 ?>
 <div class="w-full flex items-center justify-center">
-    <form action="/register" method="POST" class="w-full flex items-center
+    <form action="/register/verify" method="POST" class="w-full flex items-center
     justify-center">
         <fieldset class="border border-[#61a0ff] flex flex-col justify-center items-center lg:w-[18rem]">
             <legend class="lg:font-bold lg:text-md 2xl:text-base">Register</legend>

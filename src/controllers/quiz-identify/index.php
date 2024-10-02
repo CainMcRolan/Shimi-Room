@@ -4,8 +4,6 @@ use Core\App;
 use Core\Database;
 use Core\Validator;
 
-session_start();
-
 $db = App::resolve(Database::class);
 
 $header_info = [
@@ -21,8 +19,6 @@ $project_info = [
     "author" => "Shimi Jallores",
     "tags" => ["quiz", "laravel", "project"],
 ];
-
-Validator::verify_user($_SESSION['user']);
 
 $rankers = $db->query("
     SELECT username, time, score

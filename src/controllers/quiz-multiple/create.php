@@ -2,13 +2,8 @@
 
 use Core\App;
 use Core\Database;
-use Core\Validator;
-
-session_start();
 
 $db = App::resolve(Database::class);
-
-Validator::verify_user($_SESSION['user']);
 
 $score = $_POST['score'] ?? 0;
 $time_spent = $_POST['elapsedTime'] ?? '00:00:00';

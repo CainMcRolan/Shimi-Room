@@ -1,8 +1,5 @@
 <?php
 
-//Initiate Session
-session_start();
-
 //Include Classes
 use Core\App;
 use Core\Database;
