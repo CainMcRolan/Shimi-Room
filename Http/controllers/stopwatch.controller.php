@@ -16,4 +16,4 @@ $project_info = [
     "tags" => ["stopwatch", "timer", "project"],
 ];
 
-require base_path('src/views/stopwatch.view.php');
+require base_path('Http/views/stopwatch.view.php');

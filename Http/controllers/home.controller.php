@@ -10,6 +10,6 @@ $header_info = [
 
 $user = $_SESSION['user'];
 
-require base_path("src/data/projects.php");
+require base_path("Http/data/projects.php");
 
-require base_path('src/views/home.view.php');
+require base_path('Http/views/home.view.php');

@@ -2,27 +2,22 @@
 
 use Core\App;
 use Core\Database;
-use Core\Validator;
+use Http\Forms\LoginForm;
 
 $db = App::resolve(Database::class);
 
 $username = $_POST['username'];
 $password = $_POST['password'];
-$errors = [];
 
-if (!Validator::string($password)) {
-    $errors['body'] = "password enter a valid password";
-}
+$form = new LoginForm();
 
-if (!Validator::string($username)) {
-    $errors['body'] = "please enter a valid username.";
-}
-
-if (! empty($errors)) {
-    $_SESSION['errors'] = $errors;
+if (! $form->validate($username, $password)) {
+    $_SESSION['errors'] = $form->get_errors();
     header('location: /login');
     exit();
 }
+
+$errors = $form->get_errors();
 
 $users = $db->query("select * from users where username = :username", [':username' => $username])->find();
 

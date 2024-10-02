@@ -29,4 +29,4 @@ $errors = $_SESSION['errors'] ?? [];
 //Handle comments display
 $comments = $db->query("select * from notes order by id asc")->get();
 
-require base_path('src/views/guestbook/index.php');
+require base_path('Http/views/guestbook/index.php');

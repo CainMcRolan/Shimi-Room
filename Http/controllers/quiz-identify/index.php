@@ -35,4 +35,4 @@ $rankers = $db->query("
 ")->get();
 
 // Include the view
-require base_path('src/views/quiz-identify/index.php');
+require base_path('Http/views/quiz-identify/index.php');

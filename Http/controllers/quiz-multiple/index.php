@@ -36,4 +36,4 @@ $rankers = $db->query("
 
 
 // Include the view
-require base_path('src/views/quiz-multiple/index.php');
+require base_path('Http/views/quiz-multiple/index.php');

@@ -8,4 +8,4 @@ $header_info = [
 
 $errors = $_SESSION['errors'] ?? [];
 
-require base_path('src/views/register.view.php');
+require base_path('Http/views/register.view.php');

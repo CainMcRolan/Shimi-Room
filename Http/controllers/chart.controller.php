@@ -16,4 +16,4 @@ $project_info = [
     "tags" => ["chart", "data", "students"],
 ];
 
-require base_path('src/views/chart.view.php');
+require base_path('Http/views/chart.view.php');

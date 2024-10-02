@@ -1,10 +1,10 @@
 <?php
 
-require base_path("src/views/partials/head.php");
-require base_path("src/views/partials/background.php");
-require base_path("src/views/partials/header.php");
-require base_path("src/views/partials/nav.php");
-require base_path("src/views/partials/main.php");
+require base_path("Http/views/partials/head.php");
+require base_path("Http/views/partials/background.php");
+require base_path("Http/views/partials/header.php");
+require base_path("Http/views/partials/nav.php");
+require base_path("Http/views/partials/main.php");
 ?>
     <div class="w-full flex flex-col">
         <p class="text-xs lg:text-base">I'd appreciate if you leave a comment heree😁</p>
@@ -44,7 +44,7 @@ require base_path("src/views/partials/main.php");
         </div>
     </div>
     <div class="w-full flex flex-col items-center mt-2">
-        <form action="/guest/update" method="POST" class="w-10/12 flex items-center flex-col">
+        <form action="/guest/create" method="POST" class="w-10/12 flex items-center flex-col">
             <?php if ($username) : ?>
                 <input type="hidden" name="username" value="<?= $username ?>">
             <?php else : ?>
@@ -53,21 +53,17 @@ require base_path("src/views/partials/main.php");
                     <input id="username" type="text" name="username" class="border border-[#61a0ff] my-1 lg:p-1 2x:p-1">
                 </label>
             <?php endif; ?>
-            <input type="hidden" name="_method" value="PATCH">
-            <input type="hidden" name="id" value="<?= $_GET['id'] ?>">
             <label class="w-full flex justify-center">
                     <textarea class="border border-[#61a0ff] w-full h-20 p-1 lg:w-1/2" name="comment"
-                              placeholder="Comment..." ><?= $comment_assoc["comment"] ?></textarea>
+                              placeholder="Comment..."></textarea>
             </label>
-            <input type="submit" name="submit" value="Update" class="text-center mt-1 border border-gray-500 bg-gray-200
+            <input type="submit" name="submit" value="Comment" class="text-center mt-1 border border-gray-500 bg-gray-200
                        rounded-sm cursor-pointer">
-            <a href="/guest" class="text-center mt-1 border border-gray-500 bg-gray-200
-                       rounded-sm cursor-pointer">Cancel</a>
-            <p class="text-red-500"><?= $errors['body'] ?? '' ?></p>
+            <p class="text-red-500"><?= $errors['body'] ?? '' ?></p>.
         </form>
     </div>
 <?php
-require base_path("src/views/partials/info.php");
-require base_path("src/views/partials/aside.php");
-require base_path("src/views/partials/footer.php");
+require base_path("Http/views/partials/info.php");
+require base_path("Http/views/partials/aside.php");
+require base_path("Http/views/partials/footer.php");
 ?>

@@ -26,3 +26,9 @@ function authorize($condition, $status = Response::FORBIDDEN) {
         abort($status);
     }
 }
+
+function view($path, $attributes = []) {
+    extract($attributes);
+
+    require base_path("Http/views/" . $path);
+}
