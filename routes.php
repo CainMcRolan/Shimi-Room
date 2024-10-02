@@ -14,7 +14,6 @@
 //Non-Dynamic Pages
 $router->get('/', 'src/controllers/login/index.php')->only('guest');
 $router->get('/home', 'src/controllers/home.controller.php')->only('user');
-$router->get('/calculator', 'src/controllers/calculator.controller.php')->only('user');
 $router->get('/stopwatch', 'src/controllers/stopwatch.controller.php')->only('user');
 
 //Login
@@ -32,6 +31,10 @@ $router->post('/register/verify', 'src/controllers/register/verify.php')->only('
 $router->get('/guest', 'src/controllers/guestbook/index.php');
 $router->post('/guest/create', 'src/controllers/guestbook/create.php');
 $router->delete('/guest/destroy', 'src/controllers/guestbook/destroy.php');
+
+//Calculator
+$router->get('/calculator', 'src/controllers/calculator.controller.php')->only('user');
+$router->post('/calculator', 'src/controllers/calculator.controller.php')->only('user');
 
 //Edit Comments
 
