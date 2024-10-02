@@ -48,3 +48,7 @@ $router->post('/quiz-identify/create', 'src/controllers/quiz-identify/create.php
 //Quiz-Multiple
 $router->get('/quiz-multiple', 'src/controllers/quiz-multiple/index.php')->only('user');
 $router->post('/quiz-multiple/create', 'src/controllers/quiz-multiple/create.php')->only('user');
+
+//Student Data Chart
+$router->get('/chart', 'src/controllers/chart.controller.php')->only('user');
+

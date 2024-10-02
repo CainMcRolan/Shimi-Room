@@ -4,8 +4,5 @@
   },
   "scripts": {
     "dev": " tailwindcss -i ./src/index.css -o public/dist/style.css --watch"
-  },
-  "dependencies": {
-    "chartjs": "^0.3.24"
   }
 }

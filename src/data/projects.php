@@ -39,4 +39,14 @@ $projects = [
         'date' => 'Sept 5',
         'tags' => 'clock',
     ],
+    [
+        'title' => 'Student Enrollment Chart',
+        'description' => 'A interactive chart displaying the number of students in different department in Lipa City Colleges.',
+        'techStack' => ['PHP', 'Tailwind CSS', 'Chart.js'],
+        'redirectLink' => '/chart',
+        'image' => 'chart.png',
+        'author' => 'Shimi Jallores',
+        'date' => 'Oct 2',
+        'tags' => 'data',
+    ],
 ];
