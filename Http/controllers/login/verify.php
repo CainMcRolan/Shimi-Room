@@ -18,7 +18,7 @@ if ($form->validate($username, $password)) {
 }
 
 Session::flash('errors', $form->get_errors());
-Session::flash('username', $username);
+Session::flash('old', ['username' => $username]);
 
 redirect('/login');
 

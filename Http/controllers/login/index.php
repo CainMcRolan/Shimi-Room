@@ -10,6 +10,6 @@ $header_info = [
 
 $errors = Session::get('errors') ?? [];
 $success = Session::get('success') ?? '';
-$username = Session::get('username') ?? '';
+$username = old('username');
 
 require base_path('Http/views/login.view.php');

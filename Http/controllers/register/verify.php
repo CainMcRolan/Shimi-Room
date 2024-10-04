@@ -21,6 +21,6 @@ if ($form->validate($username, $password)) {
     $form->error('body', 'user already exists');
 }
 
-Session::flash('username', $username);
+Session::flash('old', ['username' => $username]);
 Session::flash('errors', $form->get_errors());
 redirect('/register');

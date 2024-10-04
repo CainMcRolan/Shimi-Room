@@ -9,6 +9,6 @@ $header_info = [
 ];
 
 $errors = Session::get('errors') ?? [];
-$username = Session::get('username') ?? '';
+$username = old('username');
 
 require base_path('Http/views/register.view.php');
