@@ -1,26 +1,16 @@
 <?php
 
-use Core\App;
 use Core\Authenticator;
 use Core\Session;
 use Http\Forms\RegisterForm;
-use Core\Database;
 
-$username = $_POST['username'];
-$password = $_POST['password'];
+$form = RegisterForm::validate($attributes = ['username' => $_POST['username'], 'password' => $_POST['password']]);
 
-$form = new RegisterForm();
+$signed_in = (new Authenticator())->register_attempt($attributes['username'], $attributes['password']);
 
-$db = App::resolve(Database::class);
-
-if ($form->validate($username, $password)) {
-    if ((new Authenticator())->register_attempt($username, $password)) {
-        Session::flash('success', 'Account registered successfully.');
-        redirect('/login');
-    }
-    $form->error('body', 'user already exists');
+if (!$signed_in) {
+    $form->error('body', 'user already exists')->throw();
 }
 
-Session::flash('old', ['username' => $username]);
-Session::flash('errors', $form->get_errors());
-redirect('/register');
+Session::flash('success', 'Account registered successfully.');
+redirect('/login');
