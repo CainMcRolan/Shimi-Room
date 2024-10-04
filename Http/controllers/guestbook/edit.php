@@ -1,13 +1,8 @@
 <?php
 
-//Include Classes
-use Core\App;
-use Core\Database;
+use Core\Session;
+use Http\models\Guestbook;
 
-//Connect to Database
-$db = App::resolve(Database::class);
-
-//Declare Page Information Arrays
 $header_info = [
     "trace" => parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH),
     "title" => "Welcome to the Guest Book",
@@ -20,19 +15,18 @@ $project_info = [
     "tags" => ["guest", "notes", "comment", "message"],
 ];
 
-//Get Current Comment
-if (empty($_GET['id'])) {
-    header('location: /guest');
-    exit();
-}
-$comment_assoc = $db->query("select * from notes where id = :id", [':id' => $_GET['id']])->find_or_fail();
+$model = new Guestbook();
 
 $username = $_SESSION['user'] ?? '';
-$user = $db->query("select * from users where username = :username", [":username" => $username])->find_or_fail();
-$comments = [];
-$errors = $_SESSION['errors'] ?? [];
+$comment = $model->get_comment($_GET['id']);
 
-//Handle comments display
-$comments = $db->query("select * from notes order by id asc")->get();
+authorize($comment['username'] === $username);
+
+$user = $model->get_user($username);
+$comments = $model->get_comments();
+
+$errors = Session::get('errors') ?? [];
 
 require base_path('Http/views/guestbook/edit.php');
+
+

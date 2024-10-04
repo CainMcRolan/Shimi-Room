@@ -57,7 +57,7 @@ require base_path("Http/views/partials/main.php");
             <input type="hidden" name="id" value="<?= $_GET['id'] ?>">
             <label class="w-full flex justify-center">
                     <textarea class="border border-[#61a0ff] w-full h-20 p-1 lg:w-1/2" name="comment"
-                              placeholder="Comment..." ><?= $comment_assoc["comment"] ?></textarea>
+                              placeholder="Comment..." ><?= $comment["comment"] ?></textarea>
             </label>
             <input type="submit" name="submit" value="Update" class="text-center mt-1 border border-gray-500 bg-gray-200
                        rounded-sm cursor-pointer">

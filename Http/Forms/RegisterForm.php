@@ -2,14 +2,11 @@
 
 namespace Http\Forms;
 
-use Core\ValidationException;
 use Core\Validator;
 
-class RegisterForm
+class RegisterForm extends Form
 {
-    protected $errors = [];
-
-    public function __construct(public array $attributes)
+    public function __construct($attributes)
     {
         if (!Validator::string($attributes['password'], 5, INF)) {
             $this->errors['body'] = 'password cannot be shorter than 5 characters';
@@ -18,34 +15,5 @@ class RegisterForm
         if (!Validator::string($attributes['username'])) {
             $this->errors['body'] = 'username cannot be shorter than 5 characters';
         }
-    }
-
-    public static function validate($attributes)
-    {
-        $instance = new static($attributes);
-
-        return $instance->failed() ? $instance->throw() : $instance;
-    }
-
-    public function throw()
-    {
-        ValidationException::throw($this->get_errors(), $this->attributes);
-    }
-
-    public function failed()
-    {
-        return count($this->errors);
-    }
-
-    public function get_errors()
-    {
-        return $this->errors;
-    }
-
-    public function error($field, $error)
-    {
-        $this->errors[$field] = $error;
-
-        return $this;
     }
 }

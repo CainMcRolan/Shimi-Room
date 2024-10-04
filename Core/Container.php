@@ -10,6 +10,9 @@ class Container
         $this->binds[$key] = $resolver;
     }
 
+    /**
+     * @throws \Exception
+     */
     public function resolve($key)
     {
         if (! array_key_exists($key, $this->binds)) {
@@ -20,4 +23,5 @@ class Container
 
         return call_user_func($resolver);
     }
+
 }

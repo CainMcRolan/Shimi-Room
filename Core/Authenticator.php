@@ -6,7 +6,7 @@ class Authenticator
 {
     protected $db;
 
-    public function  __construct()
+    public function __construct()
     {
         $this->db = App::resolve(Database::class);
     }
@@ -34,10 +34,10 @@ class Authenticator
 
     public function register_attempt($username, $password): bool
     {
-        $user =  $this->db->query("select * from users where username = :username", [':username' => $username])
+        $user = $this->db->query("select * from users where username = :username", [':username' => $username])
             ->find();
 
-        if (! $user) {
+        if (!$user) {
             $password = password_hash($password, PASSWORD_DEFAULT);
             $this->db->query("insert into users (username, password) values (:username, :password)", [':username' => $username, ':password' => $password]);
             return true;

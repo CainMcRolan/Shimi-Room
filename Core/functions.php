@@ -1,5 +1,6 @@
 <?php
 
+use Core\Response;
 use Core\Session;
 
 function dd($value)
@@ -20,7 +21,7 @@ function abort($code = 404)
 {
     http_response_code($code);
 
-    require base_path("src/views/{$code}.php");
+    require base_path("Http/views/{$code}.php");
 
     die();
 }
